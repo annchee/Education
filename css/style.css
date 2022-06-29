@@ -705,7 +705,11 @@ footer ul li a:hover{
         flex-direction: column;
         display: none;
     }
-
+    
+    .nav-menu a:hover,.nav-menu a#current-page{
+        color: var(--black-color);
+    }
+	
     .nav-menu li{
         width: 100%;
         height: 6rem;
