@@ -646,6 +646,7 @@ footer ul li a:hover{
     filter: drop-shadow(0 0 .1rem var(--white-color));
     opacity: 0;
     transition: var(--transition);
+    pointer-events: none;
 }
 
 #back-to-top.show{
