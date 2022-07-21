@@ -12,6 +12,7 @@
 
 :root{
     --primary-color: #6c63ff;
+    --secondary-color: #a8a3ff;
     --success-color: #00bf84;
     --warning-color: #f7c94b;
     --danger-color: #f75842;
@@ -139,28 +140,33 @@ nav{
     align-items: center;
 }
 
-nav button{
-    display: none;
-}
-
 .nav-menu{
     display: flex;
     align-items: center;
     gap: 4rem;
+    position: relative;
 }
 
 .nav-menu a{
-    font-size: .9rem;
+    font-size: 1rem;
     transition: all 400ms linear;
 }
 
 .nav-menu a:hover,.nav-menu a#current-page{
-    color: var(--primary-color);
-    border-bottom: .3rem solid var(--primary-color);
+    color: var(--secondary-color);
+    border-bottom: .3rem solid var(--secondary-color);
 }
 
 .nav-menu a#current-page{
     pointer-events: none;
+}
+
+#open-menu-btn{
+    background: transparent;
+    font-size: 1.8rem;
+    color: var(--white-color);
+    cursor: pointer;
+    display: none;
 }
 
 /********************* HEADER ***************************/
@@ -188,6 +194,10 @@ header{
 .categories{
     background: var(--bg1-color);
     height: 32rem;
+}
+
+.categories h2{
+    margin-bottom: 2rem;
 }
 
 .categories-container{
@@ -224,8 +234,12 @@ header{
 
 .category-item{
     background: var(--primary-color);
-    padding: .7rem;
-    border-radius: .9rem;
+    padding: 1.2rem 1rem .8rem;
+    border-radius: 1rem;
+}
+
+.category-item i{
+    font-size: 1.3rem;
 }
 
 .category:nth-child(2) .category-item{
@@ -257,10 +271,21 @@ header{
     margin-top: 10rem;
 }
 
+.courses h2{
+    margin-bottom: 2rem;
+}
+
 .courses-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
+    gap: 2rem;
+}
+
+.course-img{
+    width: 50%;
+    background-color: red;
+    margin: 1rem;
+    text-align: center;
 }
 
 .course,.course-detail{
@@ -554,30 +579,27 @@ footer ul li a:hover{
     display: grid;
     grid-template-columns: 40% 60%;
     gap: 4rem;
-    height: 28rem;
+    height: 25rem;
     border-radius: 1rem;
     margin: 1.5rem auto;
 }
 
 .contact-left{
-    background: var(--primary-color);
+    background: var(--bg2-color);
     padding: 1rem;
     border-radius: 1rem;
     position: relative;
-    bottom: 6rem;
+    bottom: 5.5rem;
+    height: 28rem;
 }
 
-.contact-left{
-    height: 32rem;
-}
-
-.contact-left h2{
+.contact-left h4{
     text-align: center;
     margin: 2rem auto;
 }
 
 .contact-left-img{
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 
 .contact-socials {
@@ -588,8 +610,8 @@ footer ul li a:hover{
 }
 
 .contact-socials a{
-    padding: 1rem;
-    background: var(--bg2-color);
+    padding: .6rem .8rem;
+    background: var(--primary-color);
     border-radius: 50%;
 }
 
@@ -603,6 +625,7 @@ footer ul li a:hover{
     flex-direction: column;
     gap: 1rem;
     margin-right: 4rem;
+    margin-top: -1.5rem;
 }
 
 .form-name{
@@ -624,8 +647,8 @@ footer ul li a:hover{
 .contact-form .btn{
     width: max-content;
     cursor: pointer;
-    margin-top: 1rem;
-    margin: 1rem 10rem 0 10rem;
+    margin-top: .5rem;
+    align-self: center;
 }
 
 /********************* BACK TO TOP ***************************/
@@ -682,77 +705,6 @@ footer ul li a:hover{
     
     h4{
         font-size: 1.1rem;
-    }
-
-    nav button{
-        display: inline-block;
-        background: transparent;
-        font-size: 1.8rem;
-        color: var(--white-color);
-        cursor: pointer;
-    }
-
-    nav button#close-menu-btn{
-        display: none;
-    }
-
-    .nav-menu{
-        position: fixed;
-        top: 5rem;
-        right: 5%;
-        width: 18rem;
-        height: fit-content;
-        gap: 0;
-        flex-direction: column;
-        display: none;
-    }
-    
-    .nav-menu a:hover,.nav-menu a#current-page{
-        color: var(--black-color);
-    }
-	
-    .nav-menu li{
-        width: 100%;
-        height: 6rem;
-        opacity: 0;
-        transform-origin: top right;
-        animation: animateNavButtons .5s linear forwards;
-    }
-
-    .nav-menu li:nth-child(2){
-        animation-delay: .3s;
-    }
-
-    .nav-menu li:nth-child(3){
-        animation-delay: .4s;
-    }
-
-    .nav-menu li:nth-child(4){
-        animation-delay: .5s;
-    }
-
-    .nav-menu li a{
-        background-color: var(--primary-color);
-        box-shadow: -4rem 6rem 10rem rgba(0, 0, 0, .5);
-        width: 100%;
-        height: 100%;
-        display: grid;
-        place-items: center;
-    }
-
-    .nav-menu li a:hover{
-        background: var(--bg2-color);
-        color: var(--white-color);
-    }
-
-    @keyframes animateNavButtons{
-       0%{
-        transform: rotateZ(-90deg) rotateX(90deg) scale(0.1);
-       }
-       100%{
-        transform: rotateZ(0) rotateX(0) scale(1);
-        opacity: 1;
-       } 
     }
 
     header{
@@ -815,13 +767,18 @@ footer ul li a:hover{
         gap: 1.5rem;
         margin-top: 3rem;
         padding: 1.2rem;
+        height: auto;
     }
 
     .contact-left{
         width: auto;
-        padding: 1.5rem;
+        padding: 2rem;
         bottom: 0;
-        height: 26rem;
+        height: 25rem;
+    }
+
+    .contact-left-img{
+        margin: 2rem auto;
     }
 
     .contact-socials {
@@ -832,10 +789,6 @@ footer ul li a:hover{
     .contact-form{
         margin: 3rem 1.5rem 1rem 0;
     }
-    
-    .contact-form .btn{
-        align-self: center;
-    } 
 
     #back-to-top{
         right: 1.3rem;
@@ -847,10 +800,81 @@ footer ul li a:hover{
         width: var(--container-width-sm);
     }
 
-    .nav-menu{
-        right: 3%;
+    #open-menu-btn{
+        display: inline-block;
+        transition: .2s linear;
     }
 
+    #open-menu-btn.bx-x{
+        transform: rotate(180deg);
+    }
+
+    .nav-menu{
+        position: absolute;
+        top: 5rem;
+        right: 5%;
+        width: 18rem;
+        height: fit-content;
+        gap: 0;
+        flex-direction: column;
+        transition: .2s linear;
+        display: none;
+    }
+
+    .nav-menu.active{
+        display: block;
+    }
+
+    .nav-menu a:hover,.nav-menu a#current-page{
+        color: var(--black-color);
+    }
+
+    .nav-menu li{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        width: 100%;
+        height: 6rem;
+        opacity: 0;
+        transform-origin: top right;
+        animation: animateNavButtons .5s linear forwards;
+    }
+
+    .nav-menu li:nth-child(2){
+        animation-delay: .3s;
+    }
+
+    .nav-menu li:nth-child(3){
+        animation-delay: .4s;
+    }
+
+    .nav-menu li:nth-child(4){
+        animation-delay: .5s;
+    }
+
+    .nav-menu li a{
+        background-color: var(--primary-color);
+        box-shadow: -4rem 6rem 10rem rgba(0, 0, 0, .5);
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+
+    .nav-menu li a:hover{
+        background: var(--bg2-color);
+        color: var(--white-color);
+    }
+
+    @keyframes animateNavButtons{
+       0%{
+        transform: rotateZ(-90deg) rotateX(90deg) scale(0.1);
+       }
+       100%{
+        transform: rotateZ(0) rotateX(0) scale(1);
+        opacity: 1;
+       } 
+    } *
+
+    
     header{
         height: 100vh;
     }
@@ -858,11 +882,14 @@ footer ul li a:hover{
     .header-container{
         grid-template-columns: 1fr;
         text-align: center;
-        /* margin-top: 0; */
     }
 
     .header-left p{
         margin-bottom: 1.3rem;
+    }
+
+    .categories h2{
+        margin-bottom: 1rem;
     }
 
     .categories-right{
@@ -877,7 +904,20 @@ footer ul li a:hover{
 
     .category-item{
         display: inline-block;
+        padding: 1rem 1.5rem .6rem;
         margin-top: .5rem;
+    }
+
+    .category-item i{
+        font-size: 1.5rem;
+    }
+
+    .category h5{
+        margin: .5rem auto;
+    }
+
+    .category p {
+        font-size: .8rem;
     }
 
     .courses-container{
@@ -922,45 +962,55 @@ footer ul li a:hover{
     }
 
     .contact-container{
-       grid-template-columns: 1fr;
-       height: auto;
-       gap: 1rem;
-       margin-top: 0;
-       padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0;
     }
 
     .contact-left{
-        width: 91.5%;
         bottom: 0;
         height: 26rem;
     }
 
     .contact-left-img{
-        width: 60%;
-        height: auto;
+        width: 90%;
+        height: 10rem;
+    }
+
+    .contact-left h4{
+        margin: 6rem auto 1rem auto;
     }
 
     .contact-right{
-        width: 93%;
+        width: 100vw;
     }
 
     .contact-form{
-        margin: 1rem 1rem 1rem .6rem;
+        padding-left: 1.5rem;
     }
 
     .form-name{
         flex-direction: column;
     }
 
-    .form-name input[type="text"]{
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea{
         width: 100%;
     }
-
+    
     #back-to-top{
         right: 0.5rem;
     } 
 
 }
+
+
+
+
+
+
 
 
 
