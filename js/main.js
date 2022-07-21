@@ -1,24 +1,17 @@
-/* Change navbar on scroll */
-window.addEventListener('scroll', ()=>{
-    document.querySelector('nav').classList.toggle
-    ('window-scroll', window.scrollY > 0)
-});
-
 /* Show & hide menu */
 let menu = document.querySelector('.nav-menu');
 let menuBtn = document.querySelector('#open-menu-btn');
-let closeBtn = document.querySelector('#close-menu-btn');
+let navbar = document.querySelector('nav');
 
 menuBtn.onclick = () =>{
-    menu.style.display = "block";
-    menuBtn.style.display = "none";
-    closeBtn.style.display = "inline-block";
+    menuBtn.classList.toggle('bx-x');
+    menu.classList.toggle('active');
 }
 
-closeBtn.onclick = () =>{
-    menu.style.display = "none";
-    menuBtn.style.display = "inline-block";
-    closeBtn.style.display = "none";
+window.onscroll = () =>{
+  menuBtn.classList.remove('bx-x');
+  menu.classList.remove('active');
+  navbar.classList.toggle('window-scroll', window.scrollY > 0);
 }
 
 /* Show & hide answers */
