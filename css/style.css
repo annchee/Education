@@ -283,9 +283,10 @@ header{
 
 .course-img{
     width: 50%;
-    background-color: red;
     margin: 1rem;
     text-align: center;
+    margin: 0 auto;
+    padding-top: .5rem;
 }
 
 .course,.course-detail{
@@ -303,7 +304,7 @@ header{
 }
 
 .course-info{
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .course-info p{
@@ -827,6 +828,7 @@ footer ul li a:hover{
 
     .nav-menu a:hover,.nav-menu a#current-page{
         color: var(--black-color);
+        border-bottom: 0;
     }
 
     .nav-menu li{
@@ -1003,13 +1005,7 @@ footer ul li a:hover{
     #back-to-top{
         right: 0.5rem;
     } 
-
 }
-
-
-
-
-
 
 
 
